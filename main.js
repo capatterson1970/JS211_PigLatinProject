@@ -14,7 +14,31 @@ const rl = readline.createInterface({
 const pigLatin = (word) => {
 
   // Your code here
+  let vowel1 = 0;
+  let found = false;
+  word = word.trim().toLowerCase();
+  let wordArr = word.split('');
 
+  //console.log(word[0]);
+
+  if(word[0] === 'a' || word[0] === 'e' || word[0] === 'i' || word[0] === 'o' || word[0] === 'u') {
+    console.log(word+"yay");
+    return word +"yay";
+  }
+
+  else {
+    for(let i = 1; i < wordArr.length; i++){
+      
+      if((wordArr[i] === 'a' || wordArr[i] === 'e' || wordArr[i] === 'i' || wordArr[i] === 'o' || wordArr[i] === 'u') && (!found)){
+        vowel1 = i;
+        found = true;
+      }
+    }
+
+    console.log(word.slice(vowel1) + word.slice(0, vowel1) + "ay");
+    return word.substring(vowel1) + word.substring(0, vowel1) + "ay";
+
+  }
 }
 
 // the first function called in the program to get an input from the user
